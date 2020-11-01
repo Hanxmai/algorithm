@@ -1,29 +1,33 @@
 /**
- * @param {number[]} nums
- * @return {number}
+ * 思考：
+ * 最后一步要执行的操作一定是： num[-1]* 点爆最后一个气球k *num[length]
+ * 相当于前面执行的就是全部点爆k前和k后的所有气球
+ * 
+ * 状态转移方程：
+ * dp[i][j] = dp[i][k-1]+dp[k+1][j]+ nums[k-1]*mums[k]*mums[k+1]
  */
+
 var maxCoins = function(nums) {
-  if(nums.length === 1) return nums[0]
 
+    function getMaxCoins(nums, i, j) {
+        // 边界条件
+        if(i>j) return 0;
 
-  let max = 0;
-  for(let i=1; i< nums.length-1; i++) {
+        for(let k=i; k<=j; k++){
+            // 左边
+            const left = getMaxCoins(nums, i, k-1)
+            // 右边
+            const right = getMaxCoins(nums, k+1, j)
+            // 状态转移方程 [0, nums[k], 0]
+            const calcute = nums[i-1] * nums[k] * nums[j+1]; 
+            dp[i][j] = Math.max(dp[i][j], left + calcute + right);
+        }
+        return dp[i][j]
+    }
 
-      let sum = 0;
-      let array = [9,76,64,21];
-      while(array.length >= 1) {
-          let left = i>0 ? array[i-1]: 1;
-          let right = i <array.length ? array[i+1] : 1;
-          sum += array[i] * left * right;
+    let n = nums.length;
+    let array = [1, ...nums, 1];
+    let dp = Array.from(new Array(n+2), () => new Array(n+2).fill(0));
 
-          if(array.length >= 3) {
-              array.splice(i, 1);
-          } else {
-              array.splice(0, 1);
-          } 
-
-          max = sum > max ? sum : max;
-      }
-  }
-  return max
+    return getMaxCoins(array, 1, n);
 };
