@@ -1,4 +1,5 @@
 /**
+ * https://leetcode-cn.com/problems/burst-balloons/submissions/
  * 思考：
  * 最后一步要执行的操作一定是： num[-1]* 点爆最后一个气球k *num[length]
  * 相当于前面执行的就是全部点爆k前和k后的所有气球
