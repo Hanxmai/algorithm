@@ -1,4 +1,5 @@
 //  实现一个MyQueue 类，改类用两个栈来实现一个队列
+// https://leetcode-cn.com/problems/implement-queue-using-stacks-lcci/
 
 /**
  * 思路：
@@ -28,7 +29,7 @@ MyQueue.prototype.pop = function() {
   return peek;
 };
 
-// 
+// return 第一个值
 MyQueue.prototype.peek = function() {
   return this.list1[0]
 };
