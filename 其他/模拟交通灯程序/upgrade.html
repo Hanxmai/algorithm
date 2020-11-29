@@ -1,0 +1,113 @@
+<body>
+  <style>
+    .lamp {
+      width: 100px;
+      height: 100px;
+      border-radius: 50px;
+      background: black;
+      text-align: center;
+      color:aquamarine;
+      line-height: 100px;
+      font-size: 25px;
+    }
+  </style>
+
+  <div class="lamp"></div>
+  <button class="start">开始</button>
+  <button class="quit">停止</button>
+  <button class="reset">恢复</button>
+  <script>
+    document.querySelector('.start').onclick = () => {
+      run.reset();
+    }
+
+    document.querySelector('.quit').onclick = () => {
+      run.stop();
+    }
+
+    document.querySelector('.reset').onclick = () => {
+      run.start();
+    }
+
+    function trafficLight() {
+      let signals = [{
+        type: 'green',
+        duration: 3
+      }, {
+        type: 'yellow',
+        duration: 3
+      }, {
+        type: 'red',
+        duration: 5
+      }];
+
+      // 设置初始状态
+      let currentType = signals[0].type;
+      let currentDuration = signals[0].duration;
+      let cutdown = currentDuration;
+
+      let isStop = false;
+      let timer = null;
+
+      // 异步执行
+      function next(signal, duration) {
+        if (isStop) return;
+
+        timer = setTimeout(() => {
+          console.log(signal, cutdown);
+          document.querySelector('.lamp').innerHTML = cutdown;
+          document.querySelector('.lamp').style.background = signal;
+          cutdown--;
+
+          if (cutdown > 0) {
+            next(signal, duration);
+          } else {
+            const {
+              type,
+              duration
+            } = findNextSignal(currentType);
+
+            currentType = type
+            currentDuration = duration;
+            cutdown = currentDuration;
+
+            next(type, duration)
+          }
+
+        }, 1000);
+      }
+
+      // 判断下一秒的状态
+      function findNextSignal(type) {
+        const currentIndex = signals.findIndex(item => item.type === type);
+        const nextIndex = (currentIndex+1)%3;
+        return signals[nextIndex]
+      }
+
+      return {
+        reset() {
+          isStop = false;
+          // 根据题意，不知道是不是重新开始执行 ,如果不是重新开始，这个函数就可以被干掉了
+          currentType = signals[0].type;
+          currentDuration = signals[0].duration;
+          cutdown = currentDuration;
+
+          timer && clearTimeout(timer);
+          next(currentType, currentDuration);
+        },
+        start() {
+          isStop = false;
+          timer && clearTimeout(timer);
+          next(currentType, currentDuration);
+        },
+        stop() {
+          isStop = true;
+          clearTimeout(timer);
+        }
+      }
+    }
+
+    let run = trafficLight();
+  </script>
+  </html>
+</body>
