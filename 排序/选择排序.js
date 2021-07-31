@@ -1,16 +1,24 @@
-// 选择排序算法的实现思路有点类似插⼊排序，也分已排序区间和未排序区间。但是选择排序每次会从未排序区间中找到 最⼩的元素，将其放到已排序区间的末尾。
+// 选择排序（Selection Sort）与冒泡排序类似，也是依次对相邻的数进行两两比较。不同之处在于，它不是每比较一次就调换位置，而是一轮比较完毕，找到最大值（或最小值）之后，将其放在正确的位置，其他数的位置不变。
+// 时间复杂度 O(n2)
 
-function chooseSort(arr) {
-  function findMinItem (arr) {
-    let min = arr[0];
-    for(let i=1; i<arr.length; i++) {
-      if(arr[i] < min) {
-        min = arr[i]
-      }
-    }
-    return min
-  }
+
+function change(arr) {
+  if(arr.length <= 1) return arr; 
+  let index;
+
   for(let i=0; i<arr.length; i++) {
-    
+
+    index = i;
+
+    for(let j=i+1; j<arr.length;j++) {
+
+      if(arr[j] < arr[index]) index = j;
+    }
+
+    if(i !== index) [arr[i], arr[index]] = [arr[index], arr[i]]
   }
+
+  console.log(arr)
 }
+
+change([10,9,11, 4, 1])

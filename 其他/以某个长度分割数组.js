@@ -16,11 +16,11 @@
   const len = arr.length;
   let i = 0;
 
-  while(len >= i) {
+  while(len > i) {
     list.push(arr.slice(i, i+=size))
   }
+
    return list;
 }
 
 module.exports = chunkArrayInGroups;
-console.log(chunkArrayInGroups(["a", "b", "c", "d", "eee"], 2));

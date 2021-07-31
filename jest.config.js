@@ -1,3 +1,3 @@
 module.exports = {
-  collectCoverage: false
+  collectCoverage: true
 }

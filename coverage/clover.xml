@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1622111103501" clover="3.2.0">
+  <project timestamp="1622111103501" name="All files">
+    <metrics statements="37" coveredstatements="35" conditionals="18" coveredconditionals="13" methods="5" coveredmethods="5" elements="60" coveredelements="53" complexity="0" loc="37" ncloc="37" packages="1" files="3" classes="3"/>
+    <file name="以某个长度分割数组.js" path="/Volumes/app/algo/其他/以某个长度分割数组.js">
+      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="14" count="6" type="stmt"/>
+      <line num="16" count="6" type="stmt"/>
+      <line num="17" count="6" type="stmt"/>
+      <line num="19" count="6" type="stmt"/>
+      <line num="20" count="18" type="stmt"/>
+      <line num="23" count="6" type="stmt"/>
+      <line num="24" count="6" type="stmt"/>
+      <line num="27" count="1" type="stmt"/>
+    </file>
+    <file name="字符串数字相加.js" path="/Volumes/app/algo/其他/字符串数字相加.js">
+      <metrics statements="17" coveredstatements="15" conditionals="10" coveredconditionals="7" methods="2" coveredmethods="2"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="9" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="14" count="2" type="cond" truecount="1" falsecount="1"/>
+      <line num="15" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="16" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="18" count="2" type="stmt"/>
+      <line num="20" count="2" type="cond" truecount="1" falsecount="1"/>
+      <line num="21" count="2" type="stmt"/>
+      <line num="22" count="2" type="stmt"/>
+      <line num="24" count="0" type="stmt"/>
+      <line num="25" count="0" type="stmt"/>
+      <line num="28" count="1" type="stmt"/>
+      <line num="32" count="2" type="stmt"/>
+      <line num="35" count="1" type="stmt"/>
+    </file>
+    <file name="获取最少硬币.js" path="/Volumes/app/algo/其他/获取最少硬币.js">
+      <metrics statements="12" coveredstatements="12" conditionals="8" coveredconditionals="6" methods="2" coveredmethods="2"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="5" type="cond" truecount="2" falsecount="0"/>
+      <line num="11" count="4" type="stmt"/>
+      <line num="12" count="4" type="cond" truecount="1" falsecount="1"/>
+      <line num="13" count="4" type="stmt"/>
+      <line num="15" count="4" type="stmt"/>
+      <line num="16" count="4" type="stmt"/>
+      <line num="17" count="4" type="stmt"/>
+      <line num="18" count="6" type="stmt"/>
+      <line num="19" count="6" type="stmt"/>
+      <line num="21" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
+    </file>
+  </project>
+</coverage>
